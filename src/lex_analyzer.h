@@ -1,6 +1,8 @@
 #ifndef LEX_ANALYZER_H
 #define LEX_ANALYZER_H
 
+// ЛЕКСИЧЕСКИЙ АНАЛИЗАТОР
+
 #include <string>
 #include <array>
 

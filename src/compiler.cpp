@@ -10,20 +10,22 @@ int main()
 	std::getline(std::cin, str);
 	while (str != "end")
 	{
-		addSpaces(&str);
-		lex_analyzer(&str);
-		if (lex_analyzer(&str) == -1)
-			std::cout << "Incorrect identifier or number" << std::endl;
+		addSpaces(&str);			   // добавляем недостающие пробелы
+		int flag = lex_analyzer(&str); // производим лексический анализ, составляем строку токенов
+		if (flag == -1)
+			std::cout << "Lex_analyze: Failed" << std::endl;
 		else
 		{
-			synt_analyzer(str);
+			std::cout << "Lex_analyze: Correct" << std::endl;
+			synt_analyzer(str); // производим синтаксический анализ строки токенов
 			if (synt_analyzer(str) == 0)
-				std::cout << "Correct" << std::endl;
+				std::cout << "Synt_analyze: Correct" << std::endl;
 			else
-				std::cout << "Failed" << std::endl;
-			std::cout << "Input string:" << std::endl;
-			std::getline(std::cin, str);
+				std::cout << "Synt_analyze: Failed" << std::endl;
 		}
+		std::cout << std::endl;
+		std::cout << "Input string:" << std::endl;
+		std::getline(std::cin, str);
 	}
 	return 0;
 }
